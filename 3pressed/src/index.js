@@ -7,123 +7,30 @@ import './/CSS/main.css';
 // import icons and images from Images folder
 import navIcon from './Images/navigation.png'
 
+// import navMenu
+import {navigationArray} from './GlobalElements/navArray';
+import NavElement from './GlobalElements/Navigation';
 
-// individual elements
-// array of choices user can choose
-const listingArray = [
-  {
-    id: 1,
-    title: "Academic Tuition"
-    // TODO : learn how to link this to a new page, academicTuition.html or smth
-    // might be linked to React Router, watch tutorial to proceed
-  }, 
-  {
-    id: 2,
-    title: "Other Enrichment"
-  },
-  {
-    id: 3,
-    title: "Arts&IT"
-  },
-  {
-    id: 4,
-    title: "Personal Care"
-  },
-  {
-    id: 5,
-    title: "Property"
-  },
-  {
-    id: 6,
-    title: "Home Services"
-  },
-  {
-    id: 7,
-    title: "Medical"
-  },
-  {
-    id: 8,
-    title: "Transport"
-  }
-];
+// import grid of choices for index.html
+import {listingArray} from './IndexElement/listingArray';
+import Element from './IndexElement/Element';
 
 // header for company name
 const myHeader = "3-Pressed"
 
-// LHS navigation menu
-const navigationArray = [
-  {
-    id: 1,
-    title: 'Home'
-    // TODO : learn how to link this Home option to index.html, or the first page
-  },
-  {
-    id: 2,
-    title: 'Profile'
-  },
-  {
-    id: 3,
-    title: 'Inbox'
-  },
-  {
-    id: 4,
-    title: 'Past Bookings'
-  },
-  {
-    id: 5,
-    title: 'Contact Us'
-  },
-  {
-    id: 6,
-    title: 'Log-Out'
-  },
-  {
-    id: 7,
-    title: 'Privacy Policy'
-  },
-];
-
-// JS for navigationMenu element
-const NavElement = (props) => {
-  const {title} = props;
-  const clickHandler = () => {
-    alert("You clicked into the navigation Menu!!")
-  }
-
-  return (
-    <article className = "navElement" onClick= {clickHandler}>
-      <span><h4>{title}</h4></span>
-    </article>
-  )
-}
-
-
-// JS for listingArray element
-const Element = (props) => {
-  const {title} = props;
-  const clickHandler = () => {
-    alert("You Clicked in the grid of choices!")
-  }
-
-  return (
-    <article className = "element" onClick= {clickHandler}>
-      <span><h1>{title}</h1></span>
-    </article>
-  )
-}
 
 // function that returns the whole page
-function ElementList() {
+function IndexLayout() {
 
   //opens when you click on the hamburger icon
-  const openButton = () => {
+  const openNavBar = () => {
     document.getElementById("navigationMenu").style.width = "200px";
     // TODO : toggle an overlay that prevents user from clicking anything 
     // like the grid of options that should be conceptually "behind" the navMenu
     document.getElementById("overlay").style.display = "block";
   }
   // closes when you click on the black overlay outside the navMenu
-  const closeButton = () => {
+  const closeNavBar = () => {
     if (document.getElementById("navigationMenu").style.width === "200px")
     {
       document.getElementById("navigationMenu").style.width = "0px";
@@ -151,15 +58,15 @@ function ElementList() {
 
       </section>
       
-      <section id = "overlay" className="overlay" onClick = {closeButton}>
+      <section id = "overlay" className="overlay" onClick = {closeNavBar}>
 
       </section>
-      <section id = 'navButton' className= 'navButton' onClick= {openButton}>
+      <section id = 'navButton' className= 'navButton' onClick= {openNavBar}>
         <img src={navIcon} alt=""/>
       </section>
 
 
-      <section id = 'ElementList' className = 'ElementList' onClick = {closeButton}>
+      <section id = 'ElementList' className = 'ElementList'>
         {listingArray.map((element) => {
           return <Element 
           key = {element.id}
@@ -175,4 +82,4 @@ function ElementList() {
 
 // include opening and closing tag when passing in a function inside React.render()
 
-ReactDom.render(<ElementList></ElementList>, document.getElementById('root'));
+ReactDom.render(<IndexLayout></IndexLayout>, document.getElementById('root'));
