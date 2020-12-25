@@ -19,7 +19,7 @@ const NavElement = (props) => {
     // modify this to add icons, etc in the future
     return (
         <article id = "navElement" className = "navElement" onClick= {clickHandler}>
-        <span><h4>{title}</h4></span>
+            <span><h4>{title}</h4></span>
         </article>
     )
 }

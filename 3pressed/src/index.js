@@ -14,6 +14,9 @@ import ElementList from './IndexElement/Element';
 // header for company name
 import {MyHeader} from './GlobalElements/companyHeader';
 
+// import tutor listing
+import {TutorListing} from './tutors/Tutor';
+
 // function that returns the whole page
 function IndexLayout() {
 
@@ -23,7 +26,9 @@ function IndexLayout() {
       
       <NavMenu />
 
-      {<ElementList />}
+      <ElementList />
+
+      <TutorListing />
       
     </div>
     

@@ -37,7 +37,18 @@ body{
   min-height: 150px;
   text-align: center;
   vertical-align: middle;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
+
+/* img needs to be styled when we add avatars for tutor or icons for different listings */
+.element img {
+  margin: 1rem;
+  width: 100px;
+  height: 100px;
+  float: right;
+}
+
 
 /* styling for navigation menu elements */
 .navigationMenu{
@@ -59,11 +70,6 @@ body{
   color: whitesmoke;
   margin: 0 0 5px 10px;
 }
-
-/* .navButton p:hover {
-  font-weight: bold;
-  cursor: pointer;
-} */
 
 .navButton img {
   position: absolute;
@@ -90,4 +96,18 @@ body{
   width: 100%;
   background-color: black;
   opacity: 50%;
+}
+
+/* Tutor Styling */
+.tutorListing {
+  width: 90vw;
+  max-width: 700px;
+  margin: 3em auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+.tutorListing h1, h4{
+  text-align: left;
 }
