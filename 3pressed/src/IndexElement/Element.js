@@ -14,8 +14,8 @@ const Element = (props) => {
     userChoice = title;
   }
   
-  // this return statement defines how each grid looks like and what information we have in it
-  // this is what we modify when we want to include icons, etc in the future
+  // this return statement defines how each individual grid looks like
+  // modify this to add icons, etc in the future
   return (
       <article id = "element" className = "element" onClick = {() => clickHandler(title)}>
       <span><h1>{title}</h1></span>

@@ -28,5 +28,5 @@ export const navigationArray = [
     {
       id: 7,
       title: 'Privacy Policy'
-    },
+    }
   ];
