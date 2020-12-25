@@ -16,7 +16,7 @@ import NavElement from './GlobalElements/Navigation';
 import ElementList from './IndexElement/Element';
 
 // header for company name
-import {myHeader} from './GlobalElements/companyHeader';
+import {MyHeader} from './GlobalElements/companyHeader';
 
 
 
@@ -43,10 +43,7 @@ function IndexLayout() {
 
   return (
     <div className= 'main'>
-      
-      <section className = 'header'>
-        <h1>{myHeader}</h1>
-      </section>
+      <MyHeader />
       
       <section id = 'navigationMenu' className="navigationMenu">
         {navigationArray.map((element) => {
