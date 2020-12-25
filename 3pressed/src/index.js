@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import {useState} from 'react';
 
 // import CSS
 import './/CSS/main.css';
@@ -12,11 +13,12 @@ import {navigationArray} from './GlobalElements/navArray';
 import NavElement from './GlobalElements/Navigation';
 
 // import grid of choices for index.html
-import {listingArray} from './IndexElement/listingArray';
-import Element from './IndexElement/Element';
+import ElementList from './IndexElement/Element';
 
 // header for company name
-const myHeader = "3-Pressed"
+import {myHeader} from './GlobalElements/companyHeader';
+
+
 
 
 // function that returns the whole page
@@ -37,6 +39,7 @@ function IndexLayout() {
       document.getElementById("overlay").style.display = "none";
     }
   }
+
 
   return (
     <div className= 'main'>
@@ -65,15 +68,8 @@ function IndexLayout() {
         <img src={navIcon} alt=""/>
       </section>
 
-
-      <section id = 'ElementList' className = 'ElementList'>
-        {listingArray.map((element) => {
-          return <Element 
-          key = {element.id}
-          {...element}>
-          </Element>
-        })}
-      </section>
+      {<ElementList />}
+      
     </div>
     
   )
