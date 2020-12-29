@@ -1,7 +1,7 @@
 import React from 'react'
 import {navigationArray} from './navArray';
 import {useState} from 'react';
-import navIcon from '../Images/navigation.png';
+import navIcon from '..//Images//navigation.png';
 
 // JS for navigationMenu element
 

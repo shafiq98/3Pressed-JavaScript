@@ -1,9 +1,9 @@
 import React from 'react'
-import {listingArray} from './listingArray';
-import {subjectArray} from '..//academicTuition/subjectArray';
+import {listingArray} from '../fixedInformationArray/listingArray';
+import {subjectArray} from '../fixedInformationArray/subjectArray';
 import {useState} from 'react';
 
-
+// this template is used to display a grid information like categories
 let userChoice = "Nothing yet";
 
 // when an option in the grid is chosen, we record that choice
@@ -31,9 +31,13 @@ const ElementList = (props) => {
 
   // need to add more elements into the switch case when we want more functionality
   const clickHandler = () => {
+    console.log(userChoice);
     switch (userChoice) {
       case "Academic Tuition":
         setWorkingArray(subjectArray);
+        break;
+      case "English": 
+        alert("Sorry no listings available yet");
         break;
       default:
         setWorkingArray(listingArray);
