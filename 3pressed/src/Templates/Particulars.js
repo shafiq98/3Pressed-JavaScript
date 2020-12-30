@@ -1,12 +1,15 @@
 import React from 'react'
-import {useState} from 'react';
+import {useState, useContext} from 'react';
+import {ChoiceContext} from '..//GlobalElements/ChoiceContext';
+
 
 // this template will be used for listing of inidivdual people, with more detail like a list of tutors
 let userChoice = "None";
 const Particulars = (props) => {
     const {title, age, sex, distance, rate, avatar} = props;
+    const {choice, setChoice} = useContext(ChoiceContext);
     const clickHandler = () => {
-        userChoice = title;
+        setChoice(title);
     }
     return (
         <article id = "element" className = "element" onClick = {clickHandler}>
@@ -26,14 +29,10 @@ const Particulars = (props) => {
 }
 
 export const ParticularsListing = (props) => {
-    const {particularsArray} = props;
-    const clickHandler = () => {
-        console.log(userChoice);
-    }
-    const [showListing, setShowListing] = useState(false);
+    const {particularsArray, ToDisplay} = props;
     return (
-        <section id = 'particularsListing' className="particularsListing" onClick = {clickHandler}>
-            {!showListing && particularsArray.map((element) => {
+        <section id = 'particularsListing' className="particularsListing">
+            {(ToDisplay === 2) && particularsArray.map((element) => {
                 return <Particulars
                 // key is the unique id for an element inside the array, need this to avoid error inside console
                 key = {element.id}

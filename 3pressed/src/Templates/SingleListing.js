@@ -1,11 +1,13 @@
 import React from 'react'
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
+import {ChoiceContext} from '..//GlobalElements/ChoiceContext';
 
 
 const SingleListing = (props) => {
     const {title, age, sex, distance, rate, avatar} = props;
+    const {choice, setChoice} = useContext(ChoiceContext);
     const clickHandler = () => {
-        console.log(`User Choice : ${title}`);
+        setChoice('default');
     }
     return (
         <article id = "SingleListing" className = "SingleListing" onClick = {clickHandler}>
@@ -34,23 +36,13 @@ const SingleListing = (props) => {
 
 export const DisplayListing = (props) => {
     // create an array of just one element so i can reuse return statement from other Templates
-    const {personArray, index} = props;
+    const {personArray, index, ToDisplay} = props;
     const person = [personArray[index]]
-    const [toDisplay, setToDisplay] = useState(false);
-
-    // useEffect helps prevent infinite re-rendering when we use useState normally
-    // very important line of code, do not remove
-    useEffect(() => {
-        // console.log("call useEffect");
-        if (personArray.length !== 0) {
-            setToDisplay(true);
-        }
-    })
-    // console.log("Trigger render");
+    
     // different classname and id for different css styling purposes
     return (
         <section id = "Listing" className="Listing" >
-            {toDisplay && person.map((element) => {
+            {(ToDisplay === 3) && person.map((element) => {
                 return <SingleListing
                 // key is the unique id for an element inside the array, need this to avoid error inside console
                 key = {element.id}

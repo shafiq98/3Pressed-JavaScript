@@ -3,7 +3,9 @@ import React from 'react'
 import {listingArray} from '../fixedInformationArray/listingArray';
 import {subjectArray} from '../fixedInformationArray/subjectArray';
 
-import {useState} from 'react';
+import {useState, useContext} from 'react';
+
+import {ChoiceContext} from '..//GlobalElements/ChoiceContext';
 
 // this template is used to display a grid information like categories
 let userChoice = "Nothing yet";
@@ -12,8 +14,9 @@ let userChoice = "Nothing yet";
 // using our clickHandler
 const Element = (props) => {
   const {title} = props;
+  const {choice, setChoice} = useContext(ChoiceContext);
   const clickHandler = () => {
-    userChoice = title;
+    setChoice(title);
   }
   
   // this return statement defines how each individual grid looks like
@@ -25,33 +28,14 @@ const Element = (props) => {
   )
 }
 
-// when a grid is chosen, that exists in our switch case, we move into that option
-// else, we go back to the home page as default
 const ElementList = (props) => {
-  // listing array is the first array we want when we first enter the website
-  const [isDetailed, setIsDetailed] = useState(false);
-
-  const [workingArray, setWorkingArray] = useState(listingArray);
-
-  // need to add more elements into the switch case when we want more functionality
-  const clickHandler = () => {
-    console.log(userChoice);
-    switch (userChoice) {
-      case "Academic Tuition":
-        setWorkingArray(subjectArray);
-        break;
-      case "English": 
-        alert("Sorry no listings available yet");
-        break;
-      default:
-        setWorkingArray(listingArray);
-        break;
-    }
-  }
+  
+  const {displayArray, ToDisplay} = props;
+  // const {displayArray, setDisplayArray} = useContext(ChoiceContext);
 
   return (
-    <section id = 'ElementList' className = 'ElementList' onClick = {() => clickHandler()}>
-      {workingArray.map((element) => {
+    <section id = 'ElementList' className = 'ElementList'>
+      {(ToDisplay===1) && displayArray.map((element) => {
         return <Element 
         key = {element.id}
         {...element}>
