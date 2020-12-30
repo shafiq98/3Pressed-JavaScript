@@ -1,6 +1,8 @@
 import React from 'react'
+
 import {listingArray} from '../fixedInformationArray/listingArray';
 import {subjectArray} from '../fixedInformationArray/subjectArray';
+
 import {useState} from 'react';
 
 // this template is used to display a grid information like categories
@@ -27,6 +29,8 @@ const Element = (props) => {
 // else, we go back to the home page as default
 const ElementList = (props) => {
   // listing array is the first array we want when we first enter the website
+  const [isDetailed, setIsDetailed] = useState(false);
+
   const [workingArray, setWorkingArray] = useState(listingArray);
 
   // need to add more elements into the switch case when we want more functionality
@@ -45,7 +49,6 @@ const ElementList = (props) => {
     }
   }
 
-  // this return statement displays all elements inside the array that is currently chosen
   return (
     <section id = 'ElementList' className = 'ElementList' onClick = {() => clickHandler()}>
       {workingArray.map((element) => {
@@ -56,6 +59,7 @@ const ElementList = (props) => {
       })}
     </section>
   )
+  
 }
 
 export default ElementList

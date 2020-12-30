@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import {useReducer, useState} from 'react';
 
 // import CSS
 import './/CSS/main.css';
@@ -38,8 +39,9 @@ function IndexLayout() {
       {/* <ParticularsListing particularsArray = {tutorArray} /> */}
       <ParticularsListing particularsArray = {[]} />
 
-      {/* <DisplayListing person = {[tutorArray[1]]} /> */}
-      <DisplayListing person = {[]} />
+      {/* <DisplayListing personArray = {tutorArray} index = {1} /> */}
+      <DisplayListing personArray = {[]} index = {0} />
+      
       
       <Footer />
     </div>

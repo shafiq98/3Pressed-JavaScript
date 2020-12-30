@@ -1,7 +1,5 @@
 import React from 'react'
-import {useState} from 'react';
-
-import {contactArray} from '../fixedInformationArray/contactArray';
+import {useState, useEffect} from 'react';
 
 
 const SingleListing = (props) => {
@@ -35,12 +33,24 @@ const SingleListing = (props) => {
 }
 
 export const DisplayListing = (props) => {
-    const {person} = props;
-    // create an array of just one element so i can reuse code from other Templates
+    // create an array of just one element so i can reuse return statement from other Templates
+    const {personArray, index} = props;
+    const person = [personArray[index]]
+    const [toDisplay, setToDisplay] = useState(false);
 
+    // useEffect helps prevent infinite re-rendering when we use useState normally
+    // very important line of code, do not remove
+    useEffect(() => {
+        // console.log("call useEffect");
+        if (personArray.length !== 0) {
+            setToDisplay(true);
+        }
+    })
+    // console.log("Trigger render");
+    // different classname and id for different css styling purposes
     return (
         <section id = "Listing" className="Listing" >
-            {person.map((element) => {
+            {toDisplay && person.map((element) => {
                 return <SingleListing
                 // key is the unique id for an element inside the array, need this to avoid error inside console
                 key = {element.id}
