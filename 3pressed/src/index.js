@@ -37,7 +37,7 @@ function IndexLayout() {
   const [ToDisplay, setToDisplay] = useState(1);
   const [choice, setChoice] = useState("default");
   const [workingArray, setWorkingArray] = useState(listingArray);
-  let index = 0;
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     switch (choice) {
@@ -50,11 +50,11 @@ function IndexLayout() {
         setToDisplay(2);
         break;
       case "Tutor A" :
-        index = 0;
+        setIndex(0);
         setToDisplay(3)
         break;
       case "Tutor B" :
-        index = 1;
+        setIndex(1);
         setToDisplay(3)
         break;
       default:
@@ -80,7 +80,7 @@ function IndexLayout() {
         {/* <ParticularsListing particularsArray = {[]} /> */}
 
         {/* <DisplayListing personArray = {tutorArray} index = {1} /> */}
-        <DisplayListing personArray = {workingArray} index = {1} ToDisplay = {ToDisplay}/>
+        <DisplayListing personArray = {workingArray} index = {index} ToDisplay = {ToDisplay}/>
 
       </ChoiceContext.Provider>
       
