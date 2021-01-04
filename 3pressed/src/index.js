@@ -86,7 +86,7 @@ function IndexLayout() {
 
       <ChoiceContext.Provider value = {{choice, setChoice}}>
 
-        <NavMenu />
+        <NavMenu informationArray = {userInfo}/>
         
         <ElementList displayArray = {workingArray} ToDisplay = {ToDisplay}/>
         

@@ -1,7 +1,7 @@
 TODO 
 
-1. create templates for sign up and sign in form
-2. create templates for profile information
+1. create templates for sign up and sign in form <- need to look into it once i learn routing in reactJS
+2. create templates for profile information <- done
 3. create a basic template that all other navigation options point to
 4. made nav menu more funtional
 

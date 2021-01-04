@@ -32,8 +32,10 @@ const NavElement = (props) => {
     )
 }
 
-export const NavMenu = () => {
+export const NavMenu = (props) => {
 
+    const {informationArray} = props;
+    let username = informationArray[0].username;
     // bring in open and close nav functions from index.js
     // better than declaring inline since we need to use closeNav in multiple places onClick
 
@@ -52,6 +54,11 @@ export const NavMenu = () => {
             </section>
 
             <section id = 'navigationMenu' className="navigationMenu">
+                <section className="welcomeMessage">
+                    <p>Welcome</p>
+                    <h2>{username}</h2>
+                </section>
+                
                 {navigationArray.map((element) => {
                     return <NavElement
                     // key is the unique id for an element inside the array, need this to avoid error inside console

@@ -20,7 +20,7 @@ const Element = (props) => {
   // modify this to add icons, etc in the future
   return (
       <article id = "element" className = "element" onClick = {() => clickHandler(title)}>
-      <span><h1>{title}</h1></span>
+      <h1>{title}</h1>
       </article>
   )
 }
