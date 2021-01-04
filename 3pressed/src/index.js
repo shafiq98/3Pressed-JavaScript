@@ -10,6 +10,7 @@ import {ChoiceContext} from './GlobalElements/ChoiceContext';
 
 // import navMenu
 import {NavMenu} from './GlobalElements/Navigation';
+import {InfoListing} from './Templates/Profile';
 
 // import grid of choices for index.html
 import ElementList from './Templates/Element';
@@ -25,9 +26,10 @@ import {ParticularsListing} from './Templates/Particulars';
 import {tutorArray} from './fixedInformationArray/tutorArray';
 
 // import single tutor
-import {DisplayListing} from './Templates/SingleListing';
+import { DisplayListing } from './Templates/SingleListing';
 import { listingArray } from './fixedInformationArray/listingArray';
 import { subjectArray } from './fixedInformationArray/subjectArray';
+import {userInfo} from './fixedInformationArray/userArray';
 
 
 
@@ -57,6 +59,10 @@ function IndexLayout() {
         setIndex(1);
         setToDisplay(3)
         break;
+      case "Profile":
+        setWorkingArray(userInfo);
+        setToDisplay(4);
+        break;
       default:
         setWorkingArray(listingArray);
         setToDisplay(1);
@@ -67,19 +73,17 @@ function IndexLayout() {
   return (
     <div className= 'main'>
       <MyHeader />
-      
-      <NavMenu />
 
       <ChoiceContext.Provider value = {{choice, setChoice}}>
+
+        <NavMenu />
+
+        <InfoListing informationArray = {workingArray} ToDisplay = {ToDisplay}/>
         
         <ElementList displayArray = {workingArray} ToDisplay = {ToDisplay}/>
         
-        {/* commented out code below shows an example of how code will look like once we display it */}
-        
         <ParticularsListing particularsArray = {workingArray} ToDisplay = {ToDisplay} />
-        {/* <ParticularsListing particularsArray = {[]} /> */}
 
-        {/* <DisplayListing personArray = {tutorArray} index = {1} /> */}
         <DisplayListing personArray = {workingArray} index = {index} ToDisplay = {ToDisplay}/>
 
       </ChoiceContext.Provider>

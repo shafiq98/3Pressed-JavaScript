@@ -1,7 +1,8 @@
 import React from 'react'
 import {navigationArray} from './navArray';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import navIcon from '..//Images//navigation.png';
+import { ChoiceContext } from './ChoiceContext';
 
 // JS for navigationMenu element
 
@@ -10,9 +11,9 @@ let userChoice = "Nothing";
 // when an option in the navMenu is chosen, we record that choice using clickHandler
 const NavElement = (props) => {
     const {title} = props;
+    const {choice, setChoice} = useContext(ChoiceContext);
     const clickHandler = () => {
-        userChoice = title;
-        console.log(`userChoice = ${userChoice}`);
+        setChoice(title);
     }
 
     // this return statement defines how each individual grid looks like
