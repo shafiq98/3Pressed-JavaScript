@@ -77,14 +77,16 @@ function IndexLayout() {
       <ChoiceContext.Provider value = {{choice, setChoice}}>
 
         <NavMenu />
-
-        <InfoListing informationArray = {workingArray} ToDisplay = {ToDisplay}/>
         
         <ElementList displayArray = {workingArray} ToDisplay = {ToDisplay}/>
         
         <ParticularsListing particularsArray = {workingArray} ToDisplay = {ToDisplay} />
 
         <DisplayListing personArray = {workingArray} index = {index} ToDisplay = {ToDisplay}/>
+
+        {/* InfoListing is the react component that opens up when user clicks on Profile option in navMenu */}
+
+        <InfoListing informationArray = {workingArray} ToDisplay = {ToDisplay}/>
 
       </ChoiceContext.Provider>
       

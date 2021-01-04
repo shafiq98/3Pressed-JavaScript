@@ -3,8 +3,7 @@ import {useState, useContext} from 'react';
 import {ChoiceContext} from '..//GlobalElements/ChoiceContext';
 
 
-// this template will be used for listing of inidivdual people, with more detail like a list of tutors
-let userChoice = "None";
+// this template will be used for listing of individual people, with more detail like a list of tutors
 const Particulars = (props) => {
     const {title, age, sex, distance, rate, avatar} = props;
     const {choice, setChoice} = useContext(ChoiceContext);
