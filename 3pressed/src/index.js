@@ -29,7 +29,7 @@ import {tutorArray} from './fixedInformationArray/tutorArray';
 import { DisplayListing } from './Templates/SingleListing';
 import { listingArray } from './fixedInformationArray/listingArray';
 import { subjectArray } from './fixedInformationArray/subjectArray';
-import {userInfo} from './fixedInformationArray/userArray';
+import { userInfo } from './fixedInformationArray/userArray';
 
 
 
