@@ -17,6 +17,8 @@ const PersonalInfo = (props) => {
                 <p>Age : {age}</p>
                 <p>Address : {address}</p>
             </div>
+
+            <input type="submit" value = "Edit"/>
         </article>
     )
 }

@@ -145,6 +145,10 @@ body{
   vertical-align: middle;
 }
 
+.SingleListing p{
+  text-align: left;
+}
+
 /* img needs to be styled when we add avatars for tutor or icons for different listings */
 .information img {
   height: 80%;

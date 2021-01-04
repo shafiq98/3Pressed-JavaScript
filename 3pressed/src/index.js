@@ -84,7 +84,7 @@ function IndexLayout() {
     <div className= 'main'>
       <MyHeader />
 
-      <ChoiceContext.Provider value = {{choice, setChoice, openNav, closeNav}}>
+      <ChoiceContext.Provider value = {{choice, setChoice}}>
 
         <NavMenu />
         
