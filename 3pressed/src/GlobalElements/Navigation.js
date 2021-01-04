@@ -4,16 +4,23 @@ import {useState, useContext} from 'react';
 import navIcon from '..//Images//navigation.png';
 import { ChoiceContext } from './ChoiceContext';
 
-// JS for navigationMenu element
+const openNav = () => {
+    document.getElementById("navigationMenu").style.width = "200px";
+    document.getElementById("overlay").style.display = "block";
+}
 
+const closeNav = () => {
+    document.getElementById("navigationMenu").style.width = "0px";
+    document.getElementById("overlay").style.display = "none";
+}
 
-let userChoice = "Nothing";
 // when an option in the navMenu is chosen, we record that choice using clickHandler
 const NavElement = (props) => {
     const {title} = props;
     const {choice, setChoice} = useContext(ChoiceContext);
     const clickHandler = () => {
         setChoice(title);
+        closeNav();
     }
 
     // this return statement defines how each individual grid looks like
@@ -25,34 +32,22 @@ const NavElement = (props) => {
     )
 }
 
-export const NavMenu = (props) => {
+export const NavMenu = () => {
 
-
-    // this useState and handler handles the opening and closing of navMenu
-    const [isOpen, setIsOpen] = useState(true);
-    const clickHandler = () => {
-        if (isOpen){
-            document.getElementById("navigationMenu").style.width = "200px";
-            document.getElementById("overlay").style.display = "block";
-        }
-        else{
-            document.getElementById("navigationMenu").style.width = "0px";
-            document.getElementById("overlay").style.display = "none";
-        }
-        setIsOpen(!isOpen);
-    }
+    // bring in open and close nav functions from index.js
+    // better than declaring inline since we need to use closeNav in multiple places onClick
 
     // since the navMenu will be hidden once the menu opens up, the user will very likely be unable to click that again
     // so we dont have to worry about what happens if user clicks navMenu twice in succession
     return (
         <section className="navigation">
             {/* clicking on navButton triggers first change in state */}
-            <section id = 'navButton' className= 'navButton' onClick = {clickHandler}>
+            <section id = 'navButton' className= 'navButton' onClick = {openNav}>
                 <img src={navIcon} alt=""/>
             </section>
 
             {/* clicking on overlay triggers second change in state */}
-            <section id = "overlay" className="overlay" onClick = {clickHandler}>
+            <section id = "overlay" className="overlay" onClick = {closeNav}>
 
             </section>
 

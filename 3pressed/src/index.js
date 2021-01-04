@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import {useEffect, useState, useContext} from 'react';
+import {useEffect, useState} from 'react';
 
 // import CSS
 import './/CSS/main.css';
@@ -41,6 +41,16 @@ function IndexLayout() {
   const [workingArray, setWorkingArray] = useState(listingArray);
   const [index, setIndex] = useState(0);
 
+  // function to open and close nav
+  
+
+  // unsure why [choice] needs to be passed as the second argument but 
+  // reactJS gives it as a suggestion when i'm looking at developer tools
+  // this allegedly helps prevent infinite update loops in some cases
+  // having no second argument(not even an empty array []) and passing [choice]
+  // gives the same result
+
+  // so we leave it in first
   useEffect(() => {
     switch (choice) {
       case "Academic Tuition" :
@@ -68,13 +78,13 @@ function IndexLayout() {
         setToDisplay(1);
         break;      
     }
-  })
+  }, [choice])
 
   return (
     <div className= 'main'>
       <MyHeader />
 
-      <ChoiceContext.Provider value = {{choice, setChoice}}>
+      <ChoiceContext.Provider value = {{choice, setChoice, openNav, closeNav}}>
 
         <NavMenu />
         

@@ -1,5 +1,4 @@
 import React from 'react'
-import {useState, useContext} from 'react';
 
 // this template will be used to display the user's information when they click on profile in the nav menu
 const PersonalInfo = (props) => {

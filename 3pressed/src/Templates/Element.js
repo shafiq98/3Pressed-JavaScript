@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {listingArray} from '../fixedInformationArray/listingArray';
-import {subjectArray} from '../fixedInformationArray/subjectArray';
-
-import {useState, useContext} from 'react';
+import {useContext} from 'react';
 
 import {ChoiceContext} from '..//GlobalElements/ChoiceContext';
 
