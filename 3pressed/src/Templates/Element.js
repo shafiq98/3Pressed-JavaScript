@@ -1,11 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 import {useContext} from 'react';
 
 import {ChoiceContext} from '..//GlobalElements/ChoiceContext';
 
 // this template is used to display a grid information like categories
-let userChoice = "Nothing yet";
 
 // when an option in the grid is chosen, we record that choice
 // using our clickHandler
@@ -20,7 +19,7 @@ const Element = (props) => {
   // modify this to add icons, etc in the future
   return (
       <article id = "element" className = "element" onClick = {() => clickHandler(title)}>
-      <h1>{title}</h1>
+        <h1>{title}</h1>
       </article>
   )
 }
